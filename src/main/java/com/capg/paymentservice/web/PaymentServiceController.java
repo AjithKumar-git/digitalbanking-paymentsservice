@@ -38,6 +38,7 @@ public class PaymentServiceController {
 			logger.warn("userBiller is invalid");
 			return null;
 		}
+		logger.info("Request Mapping Successfull \n \n");
 		return paymentService.addBiller(userBiller);
 	}
 
@@ -50,6 +51,7 @@ public class PaymentServiceController {
 			logger.warn("UserBiller object is invalid");
 			return null;
 		}
+		logger.info("Request Mapping Successfull \n \n");
 		return paymentService.removeBiller(userBiller);
 	}
 
@@ -62,6 +64,7 @@ public class PaymentServiceController {
 			logger.warn("userId is invalid");
 			return null;
 		}
+		logger.info("Request Mapping Successfull \n \n");
 		return paymentService.getBillersByUserId(userId);
 	}
 	
@@ -74,6 +77,7 @@ public class PaymentServiceController {
 			logger.warn("Payee details are invalid");
 			return Boolean.FALSE;
 		}
+		logger.info("Request Mapping Successfull \n \n");
 		return paymentService.addPayee(payeeDetails);
 	}
 
@@ -86,6 +90,7 @@ public class PaymentServiceController {
 			logger.warn("Payee details are invalid");
 			return Boolean.FALSE;
 		}
+		logger.info("Request Mapping Successfull \n \n");
 		return paymentService.removePayee(payeeDetails);
 	}
 
@@ -98,6 +103,7 @@ public class PaymentServiceController {
 			logger.warn("userId is invalid");
 			return null;
 		}
+		logger.info("Request Mapping Successfull \n \n");
 		return paymentService.findPayeesByUserId(userId);
 	}
 
@@ -106,6 +112,7 @@ public class PaymentServiceController {
 	@RequestMapping(value="/paymentservices/getAllBillers"
 			,method = RequestMethod.GET)
 	public List<RegisteredBillers> getAllBillers() {
+		logger.info("Request Mapping Successfull \n \n");
 		return paymentService.getAllBillers();
 	}
 
