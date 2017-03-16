@@ -21,7 +21,9 @@ RUN cd /digitalbanking-paymentsservice
 
 RUN mvn -f /digitalbanking-paymentsservice/pom.xml clean install -DskipTests
 
+COPY newrelic/ /opt/
+
 EXPOSE 8130
 EXPOSE 6379
 
-ENTRYPOINT ["a8sidecar", "--register", "--supervise", "java", "-jar", "-Dspring.profiles.active=docker", "/digitalbanking-paymentsservice/target/paymentservice-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["a8sidecar", "--register", "--supervise", "java", "-jar", "-Dnewrelic-config-file=/opt/newrelic.yml", "-javaagent:/opt/newrelic.jar", "-Dspring.profiles.active=docker", "/digitalbanking-paymentsservice/target/paymentservice-0.0.1-SNAPSHOT.jar"]
